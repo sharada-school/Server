@@ -30,12 +30,16 @@ if (fs.existsSync(clientPath)) {
       !req.path.startsWith('/api') &&
       !req.path.startsWith('/web/api')
     ) {
+      if (req.path === '/') {
+        return res.redirect('/web');
+      }
       return res.sendFile(path.join(clientPath, 'index.html'));
     }
     next();
   });
 } else {
-  app.get(['/', '/web'], (_, res) => {
+  app.get('/', (_, res) => res.redirect('/web'));
+  app.get('/web', (_, res) => {
     res.json({ message: 'Sharada School API Server running', status: 'healthy', version: '1.0.0' });
   });
 }
