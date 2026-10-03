@@ -1,0 +1,23 @@
+{
+  "name": "sharada-school-server",
+  "version": "1.0.0",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon -e js,json,env index.js",
+    "seed": "node seed.js",
+    "db:seed": "node seed.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^5.1.0",
+    "nodemailer": "^10.0.1",
+    "pg": "^8.13.1",
+    "run": "^2.1.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
